@@ -9,65 +9,12 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed" />
-        <CommandBinding Command="ApplicationCommands.Save" Executed="Save_Executed" />
-    </Window.CommandBindings>
-    <Grid Background="BlanchedAlmond">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="10*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <ToolBar x:Name="Tools" Grid.ColumnSpan="3">
-            <Button Command="ApplicationCommands.Open" Content="Open" />
-            <Button Command="ApplicationCommands.Save" Content="Save" />
-            <Separator Margin="10,0,10,0" />
-            <StackPanel Orientation="Horizontal">
-                <ToggleButton
-                    x:Name="BoldToggle"
-                    Width="30"
-                    Height="30"
-                    Command="EditingCommands.ToggleBold"
-                    Content="B"
-                    FontWeight="Bold" />
-                <ToggleButton
-                    x:Name="ItalicToggle"
-                    Width="30"
-                    Height="30"
-                    Command="EditingCommands.ToggleItalic"
-                    Content="I"
-                    FontStyle="Italic" />
-                <ToggleButton
-                    x:Name="UnderlineToggle"
-                    Width="30"
-                    Height="30"
-                    Command="EditingCommands.ToggleUnderline">
-                    <TextBlock Text="U" TextDecorations="Underline" />
-                </ToggleButton>
-            </StackPanel>
-            <Separator Margin="10,0,10,0" />
-            <TextBox
-                x:Name="FontSizeBox"
-                Width="40"
-                VerticalAlignment="Center"
-                Text="{Binding FontSize, Mode=TwoWay}"/>
-            <Separator Margin="10,0,10,0" />
-            <ComboBox x:Name="FontFamilyBox" 
-                      ItemsSource="{Binding FontFamilies, Mode=OneWay}"
-                      SelectedItem="{Binding FontFamily, Mode=TwoWay}"/>
-            <Separator Margin="10,0,10,0" />
-        </ToolBar>
-        <RichTextBox
-            x:Name="TextField"
-            Grid.Row="1"
-            Grid.Column="1"
-            FontSize="{Binding FontSize, Mode=OneWay}"
-            FontFamily="{Binding FontFamily, Mode=OneWay}"/>
+    <Grid>
+        <TabControl>
+            <TabItem Header="TextEditor">
+                <local:TextEditorView/>
+            </TabItem>
+        </TabControl>
+        
     </Grid>
 </Window>
