@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Net.Mime;
 using Microsoft.Win32;
 
 namespace TextEditor
@@ -53,6 +54,84 @@ namespace TextEditor
                 TextRange range = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd);
                 range.Save(fileStream, DataFormats.Rtf);
             }
+        }
+
+        private void Size14_OnSelected(object sender, RoutedEventArgs e)
+        {
+            if (size18.IsSelected == true)
+            {
+                TextField.FontSize = 14;
+            }
+        }
+
+        private void Size16_OnSelected(object sender, RoutedEventArgs e)
+        {
+            if (size16.IsSelected == true)
+            {
+                TextField.FontSize = 16;
+            };
+        }
+
+        private void Size18_OnSelected(object sender, RoutedEventArgs e)
+        {
+            if (size18.IsSelected == true)
+            {
+                TextField.FontSize = 18;
+            }
+        }
+
+        private void ToggleBoldBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ToggleBoldBtn.IsChecked == true)
+            {
+                TextField.FontWeight = FontWeights.ExtraBlack;
+            }
+            else
+            {
+                TextField.FontWeight = FontWeights.Normal;
+            }
+        }
+
+        private void ToggleItalicBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ToggleItalicBtn.IsChecked == true)
+            {
+                TextField.FontStyle = FontStyles.Italic;
+            }
+            else
+            {
+                TextField.FontStyle = FontStyles.Normal;
+            }
+        }
+
+        private void ToggleUnderlineBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            //TextRange selectedText = TextField.Selection;
+
+            //if (ToggleUnderlineBtn.IsChecked == true)
+            //{
+            //    var underline = new TextDecorationCollection();
+            //    underline.Add(TextDecorations.Underline);
+            //    selectedText.ApplyPropertyValue(Inline.TextDecorationsProperty, underline);
+                
+            //}
+            //else
+            //{
+            //    selectedText.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+            //}
+
+
+            TextRange text = new TextRange(TextField.Document.ContentStart, TextField.Document.ContentEnd);
+
+            if (ToggleUnderlineBtn.IsChecked == true)
+            {
+                text.ApplyPropertyValue(Inline.TextDecorationsProperty, TextDecorations.Underline);
+            }
+            else
+            {
+                text.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
+            }
+
         }
     }
 }

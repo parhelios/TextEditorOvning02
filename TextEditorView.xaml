@@ -26,8 +26,18 @@
             <Button Command="ApplicationCommands.Save" Content="Save" />
             <Separator Margin="10,0,10,0" />
             <StackPanel Orientation="Horizontal">
-                
+                <ComboBox Name="FontSize">
+                    <ComboBoxItem Name="size14" Content="14" Selected="Size14_OnSelected"/>
+                    <ComboBoxItem Name="size16" Content="16" Selected="Size16_OnSelected"/>
+                    <ComboBoxItem Name="size18" Content="18" Selected="Size18_OnSelected"/>
+                </ComboBox>
             </StackPanel>
+            <Separator Width="10"/>
+            <ToggleButton Name="ToggleBoldBtn" Click="ToggleBoldBtn_OnClick" Content="B" FontWeight="Bold"></ToggleButton>
+            <Separator Width="10"/>
+            <ToggleButton Name="ToggleItalicBtn" Click="ToggleItalicBtn_OnClick" Content="I" FontStyle="Italic"></ToggleButton>
+            <Separator Width="10"/>
+            <ToggleButton Name="ToggleUnderlineBtn" Click="ToggleUnderlineBtn_OnClick" Content="U" ></ToggleButton>
             <Separator Margin="10,0,10,0" />
             <Separator Margin="10,0,10,0" />
         </ToolBar>
