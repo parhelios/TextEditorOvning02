@@ -30,6 +30,7 @@
                     <ComboBoxItem Name="size14" Content="14" Selected="Size14_OnSelected"/>
                     <ComboBoxItem Name="size16" Content="16" Selected="Size16_OnSelected"/>
                     <ComboBoxItem Name="size18" Content="18" Selected="Size18_OnSelected"/>
+                    <ComboBoxItem Name="size46" Content="46" Selected="Size46_OnSelected"/>
                 </ComboBox>
             </StackPanel>
             <Separator Width="10"/>
@@ -37,7 +38,11 @@
             <Separator Width="10"/>
             <ToggleButton Name="ToggleItalicBtn" Click="ToggleItalicBtn_OnClick" Content="I" FontStyle="Italic"></ToggleButton>
             <Separator Width="10"/>
-            <ToggleButton Name="ToggleUnderlineBtn" Click="ToggleUnderlineBtn_OnClick" Content="U" ></ToggleButton>
+            <ToggleButton Name="ToggleUnderlineBtn" Click="ToggleUnderlineBtn_OnClick"><Underline>U</Underline></ToggleButton>
+            <ComboBox Name="Font">
+                <ComboBoxItem Name="ConsolasFont" Selected="ConsolasFont_OnSelected">Consolas</ComboBoxItem>
+                <ComboBoxItem Name="ComicSansFont" Selected="ComicSansFont_OnSelected">Comic Sans MS</ComboBoxItem>
+            </ComboBox>
             <Separator Margin="10,0,10,0" />
             <Separator Margin="10,0,10,0" />
         </ToolBar>

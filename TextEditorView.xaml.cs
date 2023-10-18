@@ -24,15 +24,16 @@ namespace TextEditor
     public partial class TextEditorView : UserControl
     {
         TextProps _textProps = new TextProps();
+        public List<FontFamily> fonts = new ();
 
         public TextEditorView()
         {
             InitializeComponent();
             DataContext = _textProps;
+            fonts = _textProps.FontFamilies;
         }
-
-
-        private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
+        
+            private void Open_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
             dlg.Filter = "Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
@@ -77,6 +78,14 @@ namespace TextEditor
             if (size18.IsSelected == true)
             {
                 TextField.FontSize = 18;
+            }
+        }
+
+        private void Size46_OnSelected(object sender, RoutedEventArgs e)
+        {
+            if (size46.IsSelected == true)
+            {
+                TextField.FontSize = 46;
             }
         }
 
@@ -131,7 +140,16 @@ namespace TextEditor
             {
                 text.ApplyPropertyValue(Inline.TextDecorationsProperty, null);
             }
+        }
 
+        private void ConsolasFont_OnSelected(object sender, RoutedEventArgs e)
+        {
+            TextField.FontFamily = new FontFamily("Consolas");
+        }
+
+        private void ComicSansFont_OnSelected(object sender, RoutedEventArgs e)
+        {
+            TextField.FontFamily = new FontFamily("Comic Sans MS");
         }
     }
 }
